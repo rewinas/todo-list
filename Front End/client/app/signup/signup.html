@@ -1,0 +1,47 @@
+<div ng-controller="SignUpController as sign">
+<div >
+
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+      
+      
+              <div class="pen-title">
+                <h1>MyTodoList</h1>
+              </div>
+      
+              <div class="module form-module">
+                <div class="toggle">
+                  <button>
+                    <a ui-sref="login" style="color:white; font-style:italic; font-weight:bold; font-size:15px; text-decoration:none; float:right;">
+                      <i class="fa fa-times"></i>
+                    </a>
+                  </button>
+                  <div class="tooltip"></div>
+                </div>
+      
+                <div class="form">
+                  <h2>Create an account</h2>
+                  <form ng-submit="sign.register()">
+                    <input name="name" class="form-control" type="text" ng-model="user.name" placeholder="Name" required/>
+                    <input name="email" ng-model="user.email" type="email" class="form-control" placeholder="Email" required/>
+                    <input name="password" class="form-control" type="password" ng-model="user.password" placeholder="Password" required/>
+      
+      
+      
+                    <button type="submit" class="btn btn-success">Sign up</button>
+                  </form>
+                </div>
+      
+              </div>
+      
+            </div>
+            <div class="col-sm-4"></div>
+          </div>
+          <div ui-view></div>
+        </div>
+      </div>
+    </div>
+

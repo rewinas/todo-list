@@ -1,0 +1,43 @@
+<!-- <div  ng-include="'components/common/nav.html'"></div> -->
+<div ng-controller="myproject as project" >
+<div class="container" style="padding-top:75px" ng-if="project.MyRole==='admin'">
+
+  <center>
+    <h4> Manage Your Projects</h4>
+    <br />
+    <input ng-model="search" style="background:#e6ccff;color:green;width:300px; font-weight:bold" class="form-control" placeholder="Search"> </center>
+  <br />
+
+  <div class="table-responsive">
+    <center>
+      <table class="t01" style="width:500px">
+        <tr data-ng-repeat="pro in project.myprojects | filter:search | orderBy:project.myOrderBy">
+          <td style="width:150px" ng-click="project.orderByMe('date')">{{pro.date | date }}</td>
+          <td ng-click="project.orderByMe('name')">{{pro.name}}</td>
+          <td style="width:25px">
+            <button class="btn btn-danger btn-sm" ng-click="project.delete(pro.id)">
+              <i class="fa fa-trash">&nbsp;</i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <form >
+
+            <td></td>
+            <td>
+              <input ng-model="projectz.name" class="form-control" placeholder="Project Name" required>
+            </td>
+            <td>
+
+              <button type="submit" ng-click="project.register()" class="btn btn-success btn-md" style="border-radius:50%; font-size:20px;font-weight:bolder;">+</button>
+
+            </td>
+          </form>
+        </tr>
+
+      </table>
+    </center>
+  </div>
+
+</div>
+</div>

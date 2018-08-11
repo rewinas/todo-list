@@ -1,0 +1,124 @@
+<!-- <div  ng-include="'components/common/nav.html'"></div> -->
+<div ng-controller="mytask as mtask">
+<div id="right-panel" class="right-panel" style="padding-top:100px;" ng-if="mtask.MyRole==='admin'"  >
+        <!--  -->
+    <center><h2> General Analysis of MyTodoList Application </h2></center>
+
+
+<!-- New -->
+<div class="container">
+<div class="row">
+    <div class="col-lg-6 col-md-6" >
+        <div class="card text-white bg-flat-color-1" style="border-radius:10px;">
+            <div class="card-body pb-0">
+                <br />
+               <center><p style="font-size:25px">Number of Projects</p></center> 
+                <h4 class="mb-0">
+                <center>  <span class="count" style="font-size:20px;font-weight:bold;font-style:italic;">{{mtask.myprocount.count}}</span></center>  
+                </h4>
+                <p class="text-light"></p>
+
+                <div class="chart-wrapper px-0" style="height:90px;" height="90">
+                    <canvas id="widgetChart1"></canvas>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6" >
+        <div class="card text-white bg-flat-color-3" style="border-radius:10px;">
+            <div class="card-body pb-0">
+                    <br />
+                    <center> <p style="font-size:25px;">Number of Tasks</p></center>
+                <h4 class="mb-0">
+                  <center> <span class="count" style="font-size:20px;font-weight:bold;font-style:italic;">{{mtask.mytaskcount.count}}</span> </center>
+                </h4>
+                <p class="text-light"></p>
+
+            </div>
+
+                <div class="chart-wrapper px-0" style="height:90px;" height="90">
+                    <canvas id="widgetChart3"></canvas>
+                </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div class="container">
+    <div class="row">
+       <div class="col-lg-3 col-sm-6 col-md-3">
+            <br>
+                        <div class="social-box facebook">
+                            <i class="fa fa-facebook"></i>
+                            <ul>
+                                <li>
+                                    <strong><span class="count">40</span> k</strong>
+                                    <span>friends</span>
+                                </li>
+                                <li>
+                                    <strong><span class="count">450</span></strong>
+                                    <span>feeds</span>
+                                </li>
+                            </ul>
+                        </div>
+       </div> 
+       <div class="col-lg-3 col-sm-6 col-md-3">    <br>
+        <div class="social-box twitter">
+            <i class="fa fa-twitter"></i>
+            <ul>
+                <li>
+                    <strong><span class="count">30</span> k</strong>
+                    <span>friends</span>
+                </li>
+                <li>
+                    <strong><span class="count">450</span></strong>
+                    <span>tweets</span>
+                </li>
+            </ul>
+        </div></div> 
+       <div class="col-lg-3 col-sm-6 col-md-3">
+            <br>
+            <div class="social-box linkedin">
+                <i class="fa fa-linkedin"></i>
+                <ul>
+                    <li>
+                        <strong><span class="count">40</span> +</strong>
+                        <span>contacts</span>
+                    </li>
+                    <li>
+                        <strong><span class="count">250</span></strong>
+                        <span>feeds</span>
+                    </li>
+                </ul>
+            </div>
+       </div> 
+       <div class="col-lg-3 col-sm-6 col-md-3" >
+            <br>
+            <div class="social-box google-plus"  >
+                <i class="fa fa-google-plus"></i>
+                <ul>
+                    <li>
+                        <strong><span class="count">94</span> k</strong>
+                        <span>followers</span>
+                    </li>
+                    <li>
+                        <strong><span class="count">92</span></strong>
+                        <span>circles</span>
+                    </li>
+                </ul>
+            </div>
+       </div> 
+
+    </div>
+</div>
+
+
+
+
+
+
+            </div>
+        </div>

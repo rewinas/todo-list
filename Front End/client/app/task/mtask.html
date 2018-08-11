@@ -1,0 +1,127 @@
+<!-- <div  ng-include="'components/common/nav.html'"></div> -->
+<div ng-controller="mytask as dotask">
+
+  <div class="container" style="padding-top:75px" ng-if="dotask.MyRole==='admin'||dotask.MyRole==='user'">
+    <div class="row">
+      <div class="col-md-2">
+
+
+        <br />
+        <br />
+
+        <h4>
+          <b>&nbsp;&nbsp;&nbsp;Projects</h4>
+        </b>
+
+        <br />
+        <br />
+        <table>
+
+
+          <tr ng-repeat="pro in myprojects">
+
+            <td>
+              <input class="form-control" type="radio" style="width:20px; height:20px; float:left;" value="{{pro.name}}" name="hey" ng-model="task.projectname">&nbsp;&nbsp;{{pro.name}}
+              <br />
+              <br />
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-10">
+        <center>
+          <h4>Manage Your Tasks</h4>
+          <br />
+          <input ng-model="search" style="background:#e6ccff;color:green;width:300px; font-weight:bold" class="form-control" placeholder="Search"> </center>
+        <br />
+        <div class="alert alert-danger alert-dismissable" ng-if='dotask.err!="undefined"'>
+
+          <button type="button" class="close" data-dismiss="alert" aria-hidden='true'>&times;</button>
+          <p style="color:green">
+            <b>{{dotask.err}}</b>
+          </p>
+        </div>
+        <div class="table-responsive">
+
+          <table class="t01">
+            <tr data-ng-repeat="task in mytasks | filter:search | orderBy:dotask.myOrderBy | filter : MyUserId ">
+              <td>
+                <input type="checkbox" style="height:18px;width:18px" ng-click="dotask.check(task.id,task.status === 'true' ? 'false': 'true')"
+                  ng-model="mtask.status"> </td>
+
+              <td ng-click="dotask.orderByMe('date')" style="width:150px">{{task.date | date }}</td>
+              <td ng-click="dotask.orderByMe('todos')">
+                <span ng-class="{{task.status}} === true ? 'strikethrough': 'null'">{{ task.todos }}</span>
+              </td>
+              <td ng-click="dotask.orderByMe('projectname')">{{task.projectname}}</td>
+              <!-- <td ng-hide="1==1">
+              <input ng-model="MainId"> {{task.id}}</td> -->
+              <td style="width:20px">
+                <button ng-click="fetch(task.id)" title="Make Double Click" onclick="document.getElementById('modal-wrapper-edit').style.display='block'"
+                  id="jid" value='{{task.id}}' class="btn btn-primary btn-sm">
+                  <i class="fa fa-pencil">&nbsp;</i>
+                </button>
+              </td>
+              <td style="width:25px">
+                <button class="btn btn-danger btn-sm" ng-click="dotask.delete(task.id)">
+                  <i class="fa fa-trash">&nbsp;</i>
+                </button>
+              </td>
+            </tr>
+            <tr></tr>
+            <form ng-submit="register()">
+              <td colspan="2"></td>
+              <td colspan="2">
+                <input ng-model="task.todos" class="form-control" placeholder="Add Your Todolist Task" required>
+
+              </td>
+              <td colspan="2">
+                <center>
+                  <button type="submit" ng-click="dotask.register()" class="btn btn-success btn-md" style="border-radius:50%; font-size:20px;font-weight:bolder;">+</button>
+                </center>
+              </td>
+            </form>
+            </tr>
+
+          </table>
+
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+
+        <div id="modal-wrapper-edit" class="modal" style="padding-top:100px;">
+
+          <center>
+            <form class="modal-content animate" ng-submit="update(task.idd)">
+              <div>
+                <span onclick="document.getElementById('modal-wrapper-edit').style.display='none'" class="close" title="Close Popup">&times;</span>
+                <h3 style="color:blue;font-weight:bolder;">Update Task</h3>
+                <br />
+              </div>
+              <div style="color:red; margin-left:5%; margin-right:5%; ">
+                <input class="form-control" id="one" ng-model="task.status" value="{{task.status}}" ng-hide="true">
+                <input class="form-control" id="two" ng-model="task.idd" value="task.idd" ng-hide="true">
+                <input class="form-control" id="three" style="font-size:50px;" ng-model="task.date" value="{{task.date}}" ng-hide="true">
+                <h4>Todo Task</h4>
+                <input class="form-control" ng-model="task.todos" value="{{task.todos}}">
+                <br />
+                <h4>Task Description</h4>
+                <input class="form-control" ng-model="task.description" value="{{task.description}}">
+                <br />
+                <br />
+
+                <center>
+                  <button type="submit" class="form-control btn btn-primary" style="width:150px;">UPDATE</button>
+                  <br />
+                  <br />
+                </center>
+            </form>
+          </center>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

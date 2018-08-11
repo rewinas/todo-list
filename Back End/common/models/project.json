@@ -1,0 +1,40 @@
+{
+  "name": "Project",
+  "plural": "Projects",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "tasks": {
+      "type": "hasMany",
+      "model": "Task",
+      "foreignKey": ""
+    },
+    "person": {
+      "type": "belongsTo",
+      "model": "Person",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>TodoList</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+<style>
+  .form{
+    font-size: 17px;
+
+  }
+</style>
+
+  </head>
+  <body>
+<div ng-include="'app/common/nav.html'"></div>
+
+
+    <main ui-view></main>
+    <script src="vendor/angular.js"></script>
+    <script src="vendor/angular-resource.js"></script>
+    <script src="vendor/angular-ui-router.js"></script>
+    <script src="vendor/lodash.js"></script>
+    <script src="vendor/restangular.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="app/authentication/auth.controller.js"></script>
+    <script src="app/authentication/auth.service.js"></script>
+    <script src="app/authentication/auth.route.js"></script>
+    <script src="app/admin/admin.route.js"></script>
+    <script src="app/common/home.route.js"></script>
+    <script src="app/signup/signup.controller.js"></script>
+    <script src="app/signup/signup.service.js"></script>
+    <script src="app/signup/signup.route.js"></script>
+    <script src="app/project/project.controller.js"></script>
+    <script src="app/project/project.service.js"></script>
+    <script src="app/project/project.route.js"></script>
+    <script src="app/task/task.controller.js"></script>
+    <script src="app/task/task.service.js"></script>
+    <script src="app/task/task.route.js"></script>
+
+    
+  </body>
+</html>
